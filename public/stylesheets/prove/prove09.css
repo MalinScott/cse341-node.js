@@ -1,0 +1,20 @@
+.form{
+   text-align: center;
+   border-style: double;
+   width: 90%;
+   padding: 1%;
+   margin: 5%;
+
+}
+
+.left{
+   margin-left: 45%;
+}
+#radio{
+   text-align: left;
+}
+
+#is_package{
+   display: none;
+   margin-left: 3%;
+}

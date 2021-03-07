@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/prove/prove09.css" />
+
+  <% include ../../../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../../../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+      <div class="container">
+        <h1>
+          <%= title %>
+        </h1>
+        <p>Postal Rate Calculator</p>
+      </div>
+      <div class="container">
+      </div>
+
+    </div>
+    <div class="main_section">
+      <div class="form">
+        <h1>Postal Rate </h1><br>
+        <h3>Retail First-class mail</h3><br>
+        <form action="postal-rate" method="GET">
+          <label for="weight">Weight Not Over (oz.)</label><br>
+          <input type="number" name="weight" max="16"><br>
+          <div class="left">
+            <div id="radio">
+
+              <input type="radio" id="stamped" name="postage" value="letter_stamped" onchange="displayZone(this.value)">
+              <label for="stamped">Letters (Stamped)</label><br>
+              <input type="radio" id="metered" name="postage" value="letter_metered" onchange="displayZone(this.value)">
+              <label for="metered">Letters (Metered)</label><br>
+              <input type="radio" id="envelope" name="postage" value="envelope" onchange="displayZone(this.value)">
+              <label for="envelope">Large Envelopes (Flats)</label><br>
+              <input type="radio" id="service" name="postage" value="service_retail" onchange="displayZone(this.value)">
+              <label for="service">First-Class Package Service—Retail</label>
+              <div id="is_package">
+                <input type="radio" id="zone1" name="zone" value="1">
+                <label for="zone1">Zone 1 50 mile radius</label><br>
+                <input type="radio" id="zone1" name="zone" value="2">
+                <label for="zone2">Zone 2 51 - 150 mile radius</label><br>
+                <input type="radio" id="zone1" name="zone" value="3">
+                <label for="zone3">Zone 3 151 - 300 mile radius</label><br>
+                <input type="radio" id="zone1" name="zone" value="4">
+                <label for="zone4">Zone 4 601 - 1000 mile radius</label>
+              </div>
+            </div>
+
+          </div>
+          <button type="submit">Calculate</button>
+        </form>
+
+      </div>
+    </div>
+    <script>
+      function displayZone(answer) {
+
+
+
+        if (answer == "service_retail") { // Show div if selected
+          document.getElementById("is_package").style.display = "block";
+
+
+        } else {
+
+          document.getElementById('is_package').style.display = "none";
+
+        }
+
+      }
+    </script>
+</body>
+
+
+</html>

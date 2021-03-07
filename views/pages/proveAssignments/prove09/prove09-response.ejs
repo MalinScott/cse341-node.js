@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/prove/prove09.css" />
+  <% include ../../../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../../../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+      <div class="container">
+        <h1>
+          <%= title %>
+        </h1>
+        <p>Postal Charges</p>
+      </div>
+      <div class="container">
+      </div>
+
+
+    </div>
+    <div class="main_section">
+      <div class="response">
+        <p>
+          Postage Type:
+          <%= postage %>
+        </p>
+        <p>Postage Price: $<%= cost %>
+        </p>
+        <% if(zone !=null){ %>
+          <p>Zone: <%= zone %>
+          </p>
+          <% } %>
+
+      </div>
+    </div>
+</body>
+
+</html>
