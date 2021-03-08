@@ -76,7 +76,7 @@ router.get('/postal-rate', (req, res, next) => {
 
     res.render('pages/proveAssignments/prove09/prove09-response.ejs', {
         title: 'Prove Assignment 09',
-        path: '/prove09/postal-rate', //  EJS 
+        path: '/prove09', //  EJS 
         weight: weight,
         postage: postage,
         zone: zone,
