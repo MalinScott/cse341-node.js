@@ -4,7 +4,7 @@ const path = require('path');
 
 
 const { Pool } = require("pg");
-const connectionString = process.env.DATABASE_URL;
+const connectionString = process.env.DATABASE_URL || DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
 
 function getPersonFromDb(id, callback) {
