@@ -2,10 +2,9 @@ const ta10Model = require("../../models/teamModels/ta10model");
 require('dotenv').config({ path: './env_variables.env' });
 const path = require('path');
 
-
 const { Pool } = require("pg");
 const connectionString = process.env.DATABASE_URL || DATABASE_URL;
-const pool = new Pool({connectionString: connectionString});
+const pool = new Pool({connectionString: connectionString, ssl: { rejectUnauthorized: false }});
 
 function getPersonFromDb(id, callback) {
 	console.log("Getting person from DB with id: " + id);
