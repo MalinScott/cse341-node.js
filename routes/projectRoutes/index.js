@@ -7,10 +7,11 @@ routes
       .use('/getUser', projectController.getData)
       .use('/registerUser', projectController.postData)
       .get('/', (req, res, next) => {
-         res.render('pages/project/', {
-            pageTitle: 'Stocks',
-            path: "/project02",
-      });
+            res.render('pages/project/', {
+                  pageTitle: 'Stocks',
+                  path: "/project02",
+                  data: null
+            });
       });
 
-      module.exports = routes;
+module.exports = routes;

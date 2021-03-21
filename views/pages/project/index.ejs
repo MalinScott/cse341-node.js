@@ -16,9 +16,13 @@
 
     </form>
  </section>
+ <% if (path === '/getUser') { %>
+  <p><%= data %> </p>
 
+ <% } %>
+ <% if (path === '/registerUser') { %>
+  <p><%= data %> </p>
 
- 
-
+ <% } %>
 </body>
 </html>
