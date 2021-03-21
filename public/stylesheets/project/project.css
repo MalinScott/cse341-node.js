@@ -4,12 +4,15 @@ html {
  
  body {
    margin: 0;
+   background-color: rgba(0, 0, 0, 0.932);
+   color: azure;
  }
  
  button {
    font: inherit;
    background: #5102ac;
    border: 1px solid #5102ac;
+   border-radius: 5%;
    color: white;
    cursor: pointer;
    padding: 1.25rem 2.5rem;
@@ -24,10 +27,21 @@ html {
  button:active {
    background: #832ee4;
    border-color: #832ee4;
+   border-radius: 5%;
  }
  
  #control-center {
    border: 2px solid #ccc;
    margin: 5rem;
    padding: 2rem;
+ }
+
+ .description{
+   border: 1px solid rgba(255, 255, 255, 0.24);
+   width: 100%;
+   margin-top: 1rem;
+
+ }
+ td{
+  border: 1px solid rgba(255, 255, 255, 0.24);
  }

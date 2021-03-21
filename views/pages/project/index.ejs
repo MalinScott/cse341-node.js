@@ -1,28 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <% include ./includes/header.ejs %>
+  <% include ./includes/header.ejs %>
 
 </head>
+
 <body>
-  <h1 style="text-align:center;">Project 2</h1>
+  <h1 style="text-align:center;">Stock Charts</h1>
   <section id="control-center">
-    <form action="getUser" method="GET">
+
+
+    <% if (data==null) { %>
+      <form action="Company-Stock" method="GET">
+        <label for="comp_symbl">Company Symbol</label><br>
+        <input type="text" id="comp_symbl" name="companySymbol" maxlength="5"><br>
+        <label for="comp_symbl">Company Region</label><br>
+        <input type="text" id="comp_region" name="companyRegion" maxlength="3">
+        <br>
+        <hr>
+        <button id="get-btn-stock">GET Stock</button>
+
+      </form>
+
+  </section>
+  <% } else { %>
+    <table class="description">
+      <tr><td>Compnay Name: <%= data.price.shortName %> </td><td>Symbol: <%= data.price.symbol %> </td></tr>
+      <tr><td>Company Summary: <%= data.summaryProfile.longBusinessSummary %></td></tr>
+    </table>
+    <br>
+    <table class="description">
+      <tr>
+        <td>Company Website: <a href="<%= data.summaryProfile.website %>"><%= data.summaryProfile.website %></a> </td>
+      </tr>
+      <tr>
+        <td>City: <%= data.summaryProfile.city %></td>
+        <td>State: <%= data.summaryProfile.state%></td>
+        <td>Phone #: <%= data.summaryProfile.phone %></td>
+      </tr>
+    </table>
+    <br>
+    <table class="financial-data">
+      <tr>
+        <td>Financial Currency: <%= data.price.currency %></td>
+        <td>Current Price: <%= data.financialData.currentPrice.raw%></td>
+        <td>Trailing P/E: <%= data.summaryDetail.trailingPE.raw%></td>
+      </tr>
+      <tr>
+        <td>52 Week High: <%= data.summaryDetail.fiftyTwoWeekHigh.raw %></td>
+        <td>52 Week Low: <%= data.summaryDetail.fiftyTwoWeekLow.raw %></td>
+        <td>Daily High: <%= data.summaryDetail.dayHigh.raw %></td>
+        <td>Daily Low: <%= data.summaryDetail.dayLow.raw %></td>
+      </tr>
+    </table>
+
+    <% } %>
+
+
+
+      <!--
+      <form action="getUser" method="GET">
       <button id="get-btn">GET Data</button>
 
     </form>
     <form action="registerUser" method="POST">
       <button id="post-btn">POST Data</button>
-
-    </form>
- </section>
- <% if (path === '/getUser') { %>
+   </form>
+  <% if (path === '/getUser') { %>
   <p><%= data %> </p>
 
  <% } %>
  <% if (path === '/registerUser') { %>
   <p><%= data %> </p>
 
- <% } %>
+ <% } %> -->
 </body>
+
 </html>

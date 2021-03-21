@@ -6,6 +6,13 @@ const projectController = require('../../controllers/project/axios');
 routes
       .use('/getUser', projectController.getData)
       .use('/registerUser', projectController.postData)
+      //.use('/Company-Stock', projectController.getCompany)
+
+      /*********************************************** 
+       *  GET REQUESTS
+      ************************************************/
+
+      .get('/Company-Stock', projectController.getCompany)
       .get('/', (req, res, next) => {
             res.render('pages/project/', {
                   pageTitle: 'Stocks',
@@ -13,5 +20,10 @@ routes
                   data: null
             });
       });
+
+      /*********************************************** 
+       *  POST REQUESTS
+      ************************************************/
+
 
 module.exports = routes;
