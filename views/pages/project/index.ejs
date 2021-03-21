@@ -14,9 +14,9 @@
     <% if (data==null) { %>
       <form action="Company-Stock" method="GET">
         <label for="comp_symbl">Company Symbol</label><br>
-        <input type="text" id="comp_symbl" name="companySymbol" maxlength="5"><br>
+        <input type="text" id="comp_symbl" name="companySymbol" placeholder="TSLA" maxlength="5"><br>
         <label for="comp_symbl">Company Region</label><br>
-        <input type="text" id="comp_region" name="companyRegion" maxlength="3">
+        <input type="text" id="comp_region" name="companyRegion" placeholder="US" maxlength="3">
         <br>
         <hr>
         <button id="get-btn-stock">GET Stock</button>
