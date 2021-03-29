@@ -7,74 +7,163 @@
 </head>
 
 <body>
-  <h1 style="text-align:center;">Stock Charts</h1>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/project02/" class="navbar-brand" style="padding: 0 2rem; margin: 0"><img class="logo" src="/images/stocksgreensmall.png"
+          alt="Stocks Logo"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/project02/">Home</a></li>
+          <li><a href="#">About</a></li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <h1 style="text-align:center;">Stock Charts
+    <% if (data !=null) { %>
+      <small class="text-muted">
+        <%= data.price.symbol %>
+      </small>
+      <% } else { %>
+        <small class="text-muted">Home Page</small>
+        <% } %>
+  </h1>
+  <div class="container" id="default-stocks">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= comp1.price.exchange %>
+            </h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+              <%= comp1.price.shortName %>
+            </h6>
+            <p class="card-text">Daily High: <%= comp1.price.regularMarketDayHigh.raw %> Daily Low: <%=
+                  comp1.price.regularMarketDayLow.raw %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= comp2.price.exchange %>
+            </h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+              <%= comp2.price.shortName %>
+            </h6>
+            <p class="card-text">Daily High: <%= comp1.price.regularMarketDayHigh.raw %> Daily Low: <%=
+                  comp1.price.regularMarketDayLow.raw %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <section id="control-center">
-
-
+    <label for="control-center" class="form-label">Search For A Company</label>
     <% if (data==null) { %>
       <form action="Company-Stock" method="GET">
         <label for="comp_symbl">Company Symbol</label><br>
-        <input type="text" id="comp_symbl" name="companySymbol" placeholder="TSLA" maxlength="5"><br>
-        <label for="comp_symbl">Company Region</label><br>
-        <input type="text" id="comp_region" name="companyRegion" placeholder="US" maxlength="3">
-        <br>
-        <hr>
-        <button id="get-btn-stock">GET Stock</button>
+        <div class="input-group mb-3">
+          <input type="text" id="comp_symbl" class="form-control" name="companySymbol" placeholder="TSLA" maxlength="5"
+            aria-label="Company Symbol" aria-describedby="basic-addon2" required>
+        </div>
 
+        <!--         <label for="comp_symbl">Company Region</label><br>
+        <select name="companyRegion" id="input_region">
+          <option value="US">US</option>
+          <option value="BR">BR</option>
+          <option value="AU">AU</option>
+          <option value="CA">CA</option>
+          <option value="FR">FR</option>
+          <option value="DE">DE</option>
+          <option value="HK">HK</option>
+          <option value="IN">IN</option>
+          <option value="IT">IT</option>
+          <option value="ES">ES</option>
+          <option value="GB">GB</option>
+          <option value="SG">SG</option>
+        </select>
+        <br>
+        <hr> -->
+        <button id="get-btn-stock" class="btn bnt-success btn-sm">Search</button>
       </form>
 
   </section>
   <% } else { %>
     <table class="description">
-      <tr><td>Compnay Name: <%= data.price.shortName %> </td><td>Symbol: <%= data.price.symbol %> </td></tr>
-      <tr><td>Company Summary: <%= data.summaryProfile.longBusinessSummary %></td></tr>
+      <tr>
+        <td>Compnay Name: <%= data.price.shortName %>
+        </td>
+        <td>Symbol: <%= data.price.symbol %>
+        </td>
+      </tr>
+      <tr>
+        <td>Company Summary: <%= data.summaryProfile.longBusinessSummary %>
+        </td>
+      </tr>
     </table>
     <br>
     <table class="description">
       <tr>
-        <td>Company Website: <a href="<%= data.summaryProfile.website %>"><%= data.summaryProfile.website %></a> </td>
+        <td>Company Website: <a href="<%= data.summaryProfile.website %>">
+            <%= data.summaryProfile.website %>
+          </a> </td>
       </tr>
       <tr>
-        <td>City: <%= data.summaryProfile.city %></td>
-        <td>State: <%= data.summaryProfile.state%></td>
-        <td>Phone #: <%= data.summaryProfile.phone %></td>
+        <td>City: <%= data.summaryProfile.city %>
+        </td>
+        <td>State: <%= data.summaryProfile.state%>
+        </td>
+        <td>Phone #: <%= data.summaryProfile.phone %>
+        </td>
       </tr>
     </table>
     <br>
     <table class="financial-data">
       <tr>
-        <td>Financial Currency: <%= data.price.currency %></td>
-        <td>Current Price: <%= data.financialData.currentPrice.raw%></td>
-        <td>Trailing P/E: <%= data.summaryDetail.trailingPE.raw%></td>
+        <td>Financial Currency: <%= data.price.currency %>
+        </td>
+        <td>Current Price: <%= data.financialData.currentPrice.raw%>
+        </td>
+        <td>Trailing P/E: <%= data.summaryDetail.trailingPE.raw%>
+        </td>
       </tr>
       <tr>
-        <td>52 Week High: <%= data.summaryDetail.fiftyTwoWeekHigh.raw %></td>
-        <td>52 Week Low: <%= data.summaryDetail.fiftyTwoWeekLow.raw %></td>
-        <td>Daily High: <%= data.summaryDetail.dayHigh.raw %></td>
-        <td>Daily Low: <%= data.summaryDetail.dayLow.raw %></td>
+        <td>52 Week High: <%= data.summaryDetail.fiftyTwoWeekHigh.raw %>
+        </td>
+        <td>52 Week Low: <%= data.summaryDetail.fiftyTwoWeekLow.raw %>
+        </td>
+        <td>Daily High: <%= data.summaryDetail.dayHigh.raw %>
+        </td>
+        <td>Daily Low: <%= data.summaryDetail.dayLow.raw %>
+        </td>
       </tr>
     </table>
-
+    <form action="">
+      <button id="get-btn-stock" class="btn bnt-success btn-sm">Back</button>
+    </form>
     <% } %>
 
-
-
-      <!--
-      <form action="getUser" method="GET">
-      <button id="get-btn">GET Data</button>
-
-    </form>
-    <form action="registerUser" method="POST">
-      <button id="post-btn">POST Data</button>
-   </form>
-  <% if (path === '/getUser') { %>
-  <p><%= data %> </p>
-
- <% } %>
- <% if (path === '/registerUser') { %>
-  <p><%= data %> </p>
-
- <% } %> -->
 </body>
 
 </html>

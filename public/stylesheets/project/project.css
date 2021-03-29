@@ -1,47 +1,137 @@
+/* *******************************************************************
+* GLOBALS
+********************************************************************** */
+
 html {
-   font-family: sans-serif;
- }
- 
- body {
-   margin: 0;
-   background-color: rgba(0, 0, 0, 0.932);
-   color: azure;
- }
- 
- button {
-   font: inherit;
-   background: #5102ac;
-   border: 1px solid #5102ac;
-   border-radius: 5%;
-   color: white;
-   cursor: pointer;
-   padding: 1.25rem 2.5rem;
-   font-size: 1.5rem;
- }
- 
- button:focus {
-   outline: none;
- }
- 
- button:hover,
- button:active {
-   background: #832ee4;
-   border-color: #832ee4;
-   border-radius: 5%;
- }
- 
- #control-center {
-   border: 2px solid #ccc;
-   margin: 5rem;
-   padding: 2rem;
- }
+  font-family: sans-serif;
+}
 
- .description{
-   border: 1px solid rgba(255, 255, 255, 0.24);
-   width: 100%;
-   margin-top: 1rem;
+/* Remove the navbar's default margin-bottom and rounded borders */
 
- }
- td{
+body {
+  margin: 0;
+  background-color: #262626;
+  color: azure;
+}
+
+/* *******************************************************************
+* ELEMENT CLASSES
+********************************************************************** */
+
+/*-------------------------------
+-Components
+-----------------------------------*/
+
+button {
+  font: inherit;
+  background: #5102ac;
+  border: 1px solid #fcf4f4;
+  color: white;
+  cursor: pointer;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.5rem;
+  margin-top: 2%;
+  align-content: center;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover, button:active {
+  background: #7700ff;
+  border-color: #e4d22e;
+}
+
+td {
   border: 1px solid rgba(255, 255, 255, 0.24);
- }
+}
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  border-color: rgba(0, 128, 0, 0.658);
+  background-color: #0000007c;
+  border-radius: 3%;
+}
+
+.carousel-inner img {
+  width: 100%;
+  /* Set width to 100% */
+  margin: auto;
+  min-height: 200px;
+}
+
+select {
+  color: #000000;
+}
+select option {
+  margin: 40px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+.text-muted {
+  color: green;
+}
+.card{
+  border: 2px solid rgba(255, 255, 255, 0.253);
+  padding: 1rem;
+  width: 49rem;
+  border-radius: 5px;
+  margin: auto;
+}
+
+/*-------------------------------
+- Containers
+-----------------------------------*/
+
+/* Add a gray background color and some padding to the footer */
+
+footer {
+  background-color: #f2f2f2;
+  padding: 25px;
+}
+
+.description {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  width: 100%;
+  margin-top: 1rem;
+  color: #23d655;
+}
+input {
+  color: #000000;
+}
+
+/* ************************************************************
+* ELEMENT IDS
+*****************************************************************/
+
+#control-center {
+  border: 2px solid #ccc;
+  margin: 5rem;
+  padding: 2rem;
+}
+
+#default-stocks{
+  align-content: space-around;
+  margin: auto;
+
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  #default-stocks{
+
+    margin: auto;
+  
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none;
+  }
+}

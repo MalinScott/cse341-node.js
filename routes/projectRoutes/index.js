@@ -11,15 +11,9 @@ routes
       /*********************************************** 
        *  GET REQUESTS
       ************************************************/
-
-      .get('/Company-Stock', projectController.getCompany)
-      .get('/', (req, res, next) => {
-            res.render('pages/project/', {
-                  pageTitle: 'Stocks',
-                  path: "/project02",
-                  data: null
-            });
-      });
+      .use('/stocks-main', projectController.getMain)
+      .get('/Company-Stock', projectController.onLoad)
+      .get('/', projectController.onLoad);
 
       /*********************************************** 
        *  POST REQUESTS
